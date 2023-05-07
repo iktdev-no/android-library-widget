@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="title" format="string|reference" />
+    <attr name="titleTextColor" format="color|reference" />
+    <attr name="border" format="reference" />
+    <attr name="srcTint" format="reference|color" />
+    <attr name="subText" format="string|reference" />
+    <attr name="subTextColor" format="reference|color" />
+
+
+    <declare-styleable name="WidgetBackgroundView">
+        <attr name="textColor" format="reference|color" />
+        <attr name="dividerTint" format="color|reference" />
+        <attr name="accentColor" format="color|reference" />
+        <attr name="cardBackgroundColor" format="color|reference" />
+
+        <attr name="compactSwitchViewStyle" format="reference" />
+
+        <attr name="textTitle" format="string|reference" />
+
+        <attr name="textSwitchFollowSystemTheme" format="string|reference" />
+        <attr name="textTitleManualThemeColor" format="string|reference" />
+        <attr name="textOptionLight" format="string|reference" />
+        <attr name="textOptionDark" format="string|reference" />
+        <attr name="textTitleOpacity" format="string|reference" />
+
+    </declare-styleable>
+
+</resources>

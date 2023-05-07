@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="WidgetBackgroundViewStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="textColor">@android:color/black</item>
+        <item name="dividerTint" tools:ignore="NewApi">@android:color/system_accent1_500</item>
+        <item name="accentColor" tools:ignore="NewApi">@android:color/system_accent1_500</item>
+        <item name="compactSwitchViewStyle">@style/CompactSwitchViewStyle</item>
+    </style>
+
+    <style name="CompactSwitchViewStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="compactSwitchViewBackground">?background</item>
+        <item name="compactSwitchViewTextColor">?textColor</item>
+    </style>
+
+</resources>

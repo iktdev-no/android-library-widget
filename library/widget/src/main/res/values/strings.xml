@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+    <string name="background_color">Background color</string>
+    <string name="opacity">Opacity</string>
+    <string name="follow_system_theme">Follow system theme</string>
+</resources>
