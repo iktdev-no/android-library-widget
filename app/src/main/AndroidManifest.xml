@@ -14,20 +14,25 @@
         android:theme="@style/Theme.DemoApplication">
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="@string/demo"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".services.LockscreenWidgetActivity"
-            android:exported="true"
-            android:screenOrientation="fullSensor"
-            android:showOnLockScreen="true" />
+            android:name="no.iktdev.demoapplication.SimpleWidgetDesignerDemoActivity"
 
-        <service android:name=".services.FloaterService" />
+            android:theme="@style/WidgetDesignerTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
     </application>
-
 </manifest>

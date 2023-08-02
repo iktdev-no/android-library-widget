@@ -1,56 +1,43 @@
 package no.iktdev.widget.view
 
-import android.Manifest
-import android.app.WallpaperManager
 import android.content.Context
-import android.content.pm.PackageManager
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.LinearLayout
+import android.view.ViewGroup
 import android.widget.RemoteViews
-import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.view.updateLayoutParams
-import no.iktdev.widget.R
+import no.iktdev.ui.toPixel
 import no.iktdev.widget.databinding.ViewWidgetPreviewerBinding
+import kotlin.math.abs
 
-class WidgetPreviewerView(context: Context, attrs: AttributeSet? = null): LinearLayout(context, attrs, 0) {
+class WidgetPreviewerView(context: Context, attrs: AttributeSet? = null): ConstraintLayout(context, attrs, 0) {
     val binding = ViewWidgetPreviewerBinding.inflate(LayoutInflater.from(context), this, true)
 
-    init {
-        val wm = WallpaperManager.getInstance(context)
-        val background = if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            Log.d(this::class.java.simpleName, "Missing permission 'READ_EXTERNAL_STORAGE', so view cannot draw wallpaper with preview")
-            wm.drawable
-        }
-        else { ContextCompat.getDrawable(context, R.drawable.background) }
-        background?.let {
-            binding.background.setImageDrawable(background)
-            val matrix = binding.background.imageMatrix
-            val drawable = binding.background.drawable
-            val intrinsicWidth = drawable.intrinsicWidth
-            val intrinsicHeight = drawable.intrinsicHeight
-            val screenWidth = resources.displayMetrics.widthPixels
-            val screenHeight = resources.displayMetrics.heightPixels
-            val scaleRatio = if (intrinsicWidth > intrinsicHeight) {
-                screenHeight.toFloat() / intrinsicWidth.toFloat()
-            } else {
-                screenWidth.toFloat() / intrinsicHeight.toFloat()
-            }
-            matrix.postScale(scaleRatio, scaleRatio)
-            binding.background.imageMatrix = matrix
 
+    fun setRenderDimensions(
+        w: Int? = null, h: Int? = null,
+        mw: Int? = null, mh: Int? = null
+    ) {
+        val setWidth = w ?: toPixel(context, 200)
+        val setHeight = h ?: toPixel(context, 80)
+        val setMaxHeight = mw ?: abs(this.width * 0.8).toInt()
+        val setMaxWidth = mh ?: abs(this.height * 0.8).toInt()
+
+        binding.previewer.updateLayoutParams {
+            minWidth = setWidth
+         //   height = setHeight
+            /*if (setMaxHeight > 0) maxHeight = setMaxHeight
+            if (setMaxWidth > 0) maxWidth = setMaxWidth*/
         }
     }
 
     fun setRenderSize(w: Int, h: Int) {
         binding.previewer.updateLayoutParams {
-            height = h
-            width = w
+            minimumHeight = toPixel(context, 100)
+            minimumWidth = toPixel(context, 124)
+            width = ViewGroup.LayoutParams.WRAP_CONTENT
+            height = ViewGroup.LayoutParams.WRAP_CONTENT
         }
     }
 
@@ -61,8 +48,15 @@ class WidgetPreviewerView(context: Context, attrs: AttributeSet? = null): Linear
     fun render(remoteViews: RemoteViews) {
         renderContext?.let {
             binding.previewer.removeAllViews()
-            val renderPreviewView = remoteViews.apply(it, binding.previewer)
-            binding.previewer.addView(renderPreviewView)
+            val renderPreviewView = remoteViews.apply(it, null)
+            renderPreviewView?.layoutParams?.apply {
+                height = ViewGroup.LayoutParams.WRAP_CONTENT
+                width = ViewGroup.LayoutParams.WRAP_CONTENT
+            }
+            binding.previewer.addView(renderPreviewView, ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ))
         }
     }
 

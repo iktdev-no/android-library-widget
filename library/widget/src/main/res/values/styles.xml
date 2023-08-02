@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="WidgetBackgroundViewStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="textColor">@android:color/black</item>
+        <item name="textColor">?textColor</item>
         <item name="dividerTint" tools:ignore="NewApi">@android:color/system_accent1_500</item>
         <item name="accentColor" tools:ignore="NewApi">@android:color/system_accent1_500</item>
         <item name="compactSwitchViewStyle">@style/CompactSwitchViewStyle</item>
     </style>
 
-    <style name="CompactSwitchViewStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="compactSwitchViewBackground">?background</item>
-        <item name="compactSwitchViewTextColor">?textColor</item>
+    <style name="WidgetBackgroundPreview" parent="WidgetBackgroundViewStyle">
+        <item name="textColor">@color/defaultText</item>
+        <item name="dividerTint">@color/defaultText</item>
+        <item name="accentColor">@color/accent</item>
+        <item name="cardBackgroundColor">@color/viewBackground</item>
+        <item name="compactSwitchViewStyle">@style/CompactSwitchViewStyle</item>
     </style>
 
+    <style name="CompactSwitchViewStyle">
+        <item name="android:textColor">@color/defaultText</item>
+    </style>
+
+    <style name="WidgetDesignerTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="android:textColor">@color/defaultText</item>
+        <item name="android:colorControlNormal">@color/defaultText</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/background</item>
+
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+
+    </style>
+
+    <style name="WidgetDesignerSaveFab" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:tint">@color/defaultText</item>
+        <item name="backgroundTint">@color/colorAccent</item>
+        <item name="rippleColor">@color/colorPrimary</item>
+    </style>
 </resources>

@@ -3,6 +3,6 @@
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="background_color">Background color</string>
-    <string name="opacity">Opacity</string>
+    <string name="opacity">Background visibility</string>
     <string name="follow_system_theme">Follow system theme</string>
 </resources>

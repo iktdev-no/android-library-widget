@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">DemoApplication</string>
+    <string name="app_name">Widget DemoApplication</string>
+    <string name="demo">Demo</string>
 
     <string name="setting_title">Turn me on</string>
     <string name="setting_description">I am fancy!</string>
@@ -7,4 +8,5 @@
     <string name="setting_cant_keep_me_on">Can´t keep me on!</string>
 
     <string name="setting_title2">Keep me off</string>
+    <string name="action_settings">Settings</string>
 </resources>

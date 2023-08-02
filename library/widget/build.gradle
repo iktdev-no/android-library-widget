@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
     id 'maven-publish'
 
 }
@@ -50,6 +51,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     implementation("no.iktdev.android:ui:0.0.3-alpha4")
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.7.20"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+
 
 
 }
@@ -60,7 +64,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId "no.iktdev.android"
                 artifactId "widget"
-                version '0.0.1-alpha29'
+                version '1.0.0-alpha5'
 
                 artifact(bundleReleaseAar)
             }

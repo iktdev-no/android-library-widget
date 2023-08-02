@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/title_backgroundColor"
@@ -23,29 +23,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="0dp"
         app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_backgroundColor">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <no.iktdev.ui.CompactSwitchView
-                style="?compactSwitchViewStyle"
                 android:id="@+id/background_follow_system_theme"
+                style="?compactSwitchViewStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/follow_system_theme"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:clipToPadding="false"
-                />
+                android:text="@string/follow_system_theme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/title_background_manual"
@@ -53,38 +54,35 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/background_follow_system_theme"
                 android:text="@string/background_color"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/background_follow_system_theme" />
 
             <View
                 android:id="@+id/title_background_manual_line"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="4dp"
                 android:background="?android:attr/dividerHorizontal"
-                app:layout_constraintTop_toTopOf="@id/title_background_manual"
                 app:layout_constraintBottom_toBottomOf="@id/title_background_manual"
-                app:layout_constraintStart_toEndOf="@id/title_background_manual"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
+                app:layout_constraintStart_toEndOf="@id/title_background_manual"
+                app:layout_constraintTop_toTopOf="@id/title_background_manual" />
 
 
             <RadioGroup
                 android:id="@+id/background_selected"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title_background_manual"
+                android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:clipToPadding="false"
-                >
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_background_manual">
 
                 <RadioButton
                     android:id="@+id/background_light"
@@ -113,40 +111,38 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/background_selected"
                 android:text="@string/opacity"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/background_selected" />
 
             <View
                 android:id="@+id/title_background_opacity_line"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="4dp"
                 android:background="?android:attr/dividerHorizontal"
-                app:layout_constraintTop_toTopOf="@id/title_background_opacity"
                 app:layout_constraintBottom_toBottomOf="@id/title_background_opacity"
-                app:layout_constraintStart_toEndOf="@id/title_background_opacity"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
+                app:layout_constraintStart_toEndOf="@id/title_background_opacity"
+                app:layout_constraintTop_toTopOf="@id/title_background_opacity" />
 
             <com.google.android.material.slider.Slider
                 android:id="@+id/backgroundOpacitySlider"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title_background_opacity"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="10dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="10dp"
                 android:stepSize="10"
                 android:valueFrom="0"
-                android:valueTo="100" />
+                android:valueTo="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_background_opacity" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
